@@ -1,0 +1,85 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(135deg, #111, #330033, #111, #330033); /* Alternancia de colores oscuros */
+    color: #FFA500; /* Cambio el color del texto a naranja */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Utilizamos flexbox para centrar verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    align-items: center; /* Centramos verticalmente */
+    height: 100vh; /* Utilizamos el 100% de la altura de la ventana */
+    position: relative; /* Establecemos posición relativa para el body */
+}
+
+.container {
+    max-width: 400px; /* Se redujo el ancho del contenedor */
+    padding: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex; /* Utilizamos flexbox para alinear verticalmente */
+    flex-direction: column; /* Alineamos los elementos en columna */
+}
+
+h1 {
+    color: #FFA500; /* Color naranja plano */
+    position: absolute; /* Establecemos la posición absoluta */
+    top: 100px; /* Ajustamos la distancia desde la parte superior */
+    left: calc(50% - 150px); /* Ajustamos la distancia desde la izquierda */
+    padding: 20px; /* Añadimos padding alrededor del texto */
+    animation: slideText 10s infinite alternate; /* Animación de slider, aumentando la duración a 10s */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    opacity: 0.7; /* Opacidad del texto */
+}
+
+@keyframes slideText {
+    0% {
+        left: calc(50% - 170px); /* Ajustamos la posición inicial hacia la derecha */
+    }
+    50% {
+        left: calc(50% - 190px); /* Ajustamos la posición hacia la izquierda */
+    }
+    100% {
+        left: calc(50% - 150px); /* Regresamos a la posición inicial */
+    }
+}
+
+
+
+label {
+    color: #fff; /* Cambio el color de las etiquetas a blanco */
+    margin-bottom: 5px; /* Añadimos espacio abajo de las etiquetas */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"] {
+    width: 100%; /* Se establece el ancho al 100% para llenar el contenedor */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #FFA500; /* Naranja */
+    border-radius: 3px;
+    background-color: #111;
+    color: #fff; /* Cambio el color del texto a blanco */
+}
+
+input[type="submit"] {
+    background-color: #FFA500; /* Naranja */
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #FF8C00; /* Naranja oscuro al pasar el ratón */
+}
+
+/* Estilos para el texto "datos almacenados correctamente" */
+.success-message {
+    position: absolute;
+    bottom: 20px;
+    right: 20px; /* Ajusta este valor para mover el texto más hacia la derecha */
+    color: #FFA500;
+    font-weight: bold;
+    
+}
