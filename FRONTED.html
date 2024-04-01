@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Ingreso</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="TEMPLATE.css">
+</head>
+<body>
+    <h1>Formulario de Ingreso</h1>
+    <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="gmail">Email:</label>
+        <input type="email" id="gmail" name="gmail" required><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <div id="mensaje"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#formulario').submit(function(event){
+                event.preventDefault(); 
+
+                var nombre = $('#nombre').val();
+                var gmail = $('#gmail').val();
+
+                $.ajax({
+                    url: 'BACKEND.php',
+                    type: 'POST',
+                    data: {nombre: nombre, gmail: gmail},
+                    success: function(response){
+                        $('#mensaje').html(response);
+                        
+                        $('#nombre').val('');
+                        $('#gmail').val('');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
